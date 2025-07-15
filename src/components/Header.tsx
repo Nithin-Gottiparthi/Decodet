@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -14,6 +15,7 @@ const Header = () => {
   const location = useLocation();
 
   const navigation = [
+    { name: "Home", href: "/" },
     { name: "Digital Transformation", href: "/digital-transformation" },
     { name: "Consultancy", href: "/consultancy" },
   ];
@@ -26,6 +28,10 @@ const Header = () => {
   ];
 
   const isActive = (href: string) => location.pathname === href;
+
+  const closeMobileMenu = () => {
+    setIsMenuOpen(false);
+  };
 
   return (
     <header className="bg-background border-b shadow-sm sticky top-0 z-50">
@@ -83,8 +89,6 @@ const Header = () => {
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
-
-
           </nav>
 
           {/* CTA Button */}
@@ -115,7 +119,7 @@ const Header = () => {
                       ? "text-primary"
                       : "text-muted-foreground"
                     }`}
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={closeMobileMenu}
                 >
                   {item.name}
                 </Link>
@@ -129,7 +133,7 @@ const Header = () => {
                     key={item.name}
                     to={item.href}
                     className="block text-sm text-muted-foreground hover:text-primary pl-4 py-1"
-                    onClick={() => setIsMenuOpen(false)}
+                    onClick={closeMobileMenu}
                   >
                     {item.name}
                   </Link>
@@ -142,7 +146,7 @@ const Header = () => {
                 className="text-sm font-medium text-muted-foreground hover:text-primary"
                 onClick={(e) => {
                   e.preventDefault();
-                  setIsMenuOpen(false);
+                  closeMobileMenu();
                   window.location.href = "https://decodet.com";
                 }}
               >
@@ -150,7 +154,7 @@ const Header = () => {
               </Link>
 
               <Button asChild variant="hero" size="sm" className="w-fit">
-                <Link to="/contact">Contact</Link>
+                <Link to="/contact" onClick={closeMobileMenu}>Contact</Link>
               </Button>
             </nav>
           </div>

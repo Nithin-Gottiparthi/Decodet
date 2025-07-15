@@ -41,7 +41,7 @@ const Index = () => {
 
   const stats = [
     {
-      number: "100+",
+      number: "10+",
       label: "Successful Projects",
       icon: <CheckCircle className="h-8 w-8 text-accent" />,
     },

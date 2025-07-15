@@ -1,10 +1,15 @@
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Heart, Coffee, Users, Award, Gamepad2, Plane } from "lucide-react";
+import { Heart, Coffee, Users, Award, Gamepad2, Plane, X } from "lucide-react";
+import { useState } from "react";
 import teamCollaborationImage from "@/assets/team-collaboration.jpg";
 
 const Life = () => {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string>("");
+
   const cultureValues = [
     {
       icon: <Heart className="h-6 w-6 text-white" />,
@@ -67,6 +72,59 @@ const Life = () => {
     }
   ];
 
+  const galleryImages = [
+    {
+      src: "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&h=600&fit=crop",
+      alt: "Team collaboration in office",
+      title: "Team Collaboration"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&h=600&fit=crop",
+      alt: "Office celebration",
+      title: "Office Celebration"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=600&fit=crop",
+      alt: "Team meeting",
+      title: "Team Meeting"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&h=600&fit=crop",
+      alt: "Workspace environment",
+      title: "Modern Workspace"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&h=600&fit=crop",
+      alt: "Team achievement",
+      title: "Achievement Celebration"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop",
+      alt: "Team lunch",
+      title: "Team Lunch"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=600&fit=crop",
+      alt: "Office games",
+      title: "Office Games"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&h=600&fit=crop",
+      alt: "Training session",
+      title: "Training Session"
+    }
+  ];
+
+  const openLightbox = (imageSrc: string) => {
+    setSelectedImage(imageSrc);
+    setLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+    setSelectedImage("");
+  };
+
   return (
     <div className="min-h-screen py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -76,15 +134,15 @@ const Life = () => {
             Life at Decodet
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Discover what makes Decodet a great place to work. Our culture is built on collaboration, 
+            Discover what makes Decodet a great place to work. Our culture is built on collaboration,
             innovation, and supporting each other's growth.
           </p>
         </div>
 
         {/* Hero Image */}
         <div className="mb-20">
-          <img 
-            src={teamCollaborationImage} 
+          <img
+            src={teamCollaborationImage}
             alt="Team Collaboration at Decodet"
             className="w-full h-96 object-cover rounded-lg shadow-elegant"
           />
@@ -97,7 +155,7 @@ const Life = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {cultureValues.map((value, index) => (
-              <Card key={index} className="text-center hover:shadow-elegant transition-all duration-300">
+              <Card key={index} className="text-center hover:shadow-card-hover transition-all duration-300">
                 <CardHeader>
                   <div className="w-12 h-12 rounded-lg bg-gradient-accent flex items-center justify-center mx-auto mb-4">
                     {value.icon}
@@ -112,6 +170,36 @@ const Life = () => {
           </div>
         </section>
 
+        {/* Gallery Section */}
+        <section className="mb-20">
+          <h2 className="text-3xl font-bold text-primary text-center mb-12">
+            Our Memories
+          </h2>
+          <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Take a glimpse into our vibrant office culture, team events, and the memorable moments that make Decodet special.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {galleryImages.map((image, index) => (
+              <div
+                key={index}
+                className="group relative overflow-hidden rounded-lg cursor-pointer hover:shadow-card-hover transition-all duration-300"
+                onClick={() => openLightbox(image.src)}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <p className="font-semibold">{image.title}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Employee Testimonials */}
         <section className="mb-20">
           <h2 className="text-3xl font-bold text-primary text-center mb-12">
@@ -119,11 +207,11 @@ const Life = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="hover:shadow-elegant transition-all duration-300">
+              <Card key={index} className="hover:shadow-card-hover transition-all duration-300">
                 <CardHeader className="text-center">
                   <div className="w-16 h-16 mx-auto mb-4 rounded-full overflow-hidden">
-                    <img 
-                      src={testimonial.image} 
+                    <img
+                      src={testimonial.image}
                       alt={testimonial.author}
                       className="w-full h-full object-cover"
                     />
@@ -150,7 +238,7 @@ const Life = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {perks.map((perk, index) => (
-              <div key={index} className="bg-gradient-subtle rounded-lg p-6 text-center hover:shadow-elegant transition-all duration-300">
+              <div key={index} className="bg-gradient-subtle rounded-lg p-6 text-center hover:shadow-card-hover transition-all duration-300">
                 <div className="w-10 h-10 rounded-lg bg-gradient-accent flex items-center justify-center mx-auto mb-4">
                   {perk.icon}
                 </div>
@@ -159,21 +247,21 @@ const Life = () => {
               </div>
             ))}
           </div>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-            <div className="bg-white rounded-lg p-4 shadow-sm">
+            <div className="bg-white rounded-lg p-4 shadow-sm hover:shadow-card-hover transition-all duration-300">
               <div className="text-2xl font-bold text-primary">100%</div>
               <div className="text-sm text-muted-foreground">Health Coverage</div>
             </div>
-            <div className="bg-white rounded-lg p-4 shadow-sm">
+            <div className="bg-white rounded-lg p-4 shadow-sm hover:shadow-card-hover transition-all duration-300">
               <div className="text-2xl font-bold text-primary">25</div>
               <div className="text-sm text-muted-foreground">Vacation Days</div>
             </div>
-            <div className="bg-white rounded-lg p-4 shadow-sm">
+            <div className="bg-white rounded-lg p-4 shadow-sm hover:shadow-card-hover transition-all duration-300">
               <div className="text-2xl font-bold text-primary">$2K</div>
               <div className="text-sm text-muted-foreground">Learning Budget</div>
             </div>
-            <div className="bg-white rounded-lg p-4 shadow-sm">
+            <div className="bg-white rounded-lg p-4 shadow-sm hover:shadow-card-hover transition-all duration-300">
               <div className="text-2xl font-bold text-primary">Remote</div>
               <div className="text-sm text-muted-foreground">Work Options</div>
             </div>
@@ -186,19 +274,43 @@ const Life = () => {
             Ready to Join Our Team?
           </h2>
           <p className="text-xl mb-6 opacity-90 max-w-2xl mx-auto">
-            Experience the Decodet culture firsthand. Explore our open positions and start your 
+            Experience the Decodet culture firsthand. Explore our open positions and start your
             journey with us today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild variant="hero" size="lg">
               <Link to="/about/careers">View Open Positions</Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="border-white bg-white text-primary transition duration-300 animate-fade-in"
+            >
               <Link to="/contact">Get in Touch</Link>
             </Button>
           </div>
         </div>
       </div>
+
+      {/* Lightbox Modal */}
+      {lightboxOpen && (
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
+          <div className="relative max-w-4xl max-h-full">
+            <button
+              onClick={closeLightbox}
+              className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors"
+            >
+              <X className="h-8 w-8" />
+            </button>
+            <img
+              src={selectedImage}
+              alt="Gallery image"
+              className="max-w-full max-h-full object-contain rounded-lg"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

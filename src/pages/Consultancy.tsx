@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
@@ -12,6 +13,13 @@ import {
   ArrowRight
 } from "lucide-react";
 import consultancyServicesImage from "@/assets/consultancy-services.jpg";
+import brandingImage from "@/assets/services/branding.jpg";
+import strategicPlanningImage from "@/assets/services/strategic-planning.jpg";
+import startupIncubationImage from "@/assets/services/startup-incubation.jpg";
+import businessPlanImage from "@/assets/services/business-plan.jpg";
+import processRefinementImage from "@/assets/services/process-refinement.jpg";
+import teamBuildingImage from "@/assets/services/team-building.jpg";
+import trainingDevelopmentImage from "@/assets/services/training-development.jpg";
 
 const Consultancy = () => {
   const services = [
@@ -19,36 +27,43 @@ const Consultancy = () => {
       title: "Branding",
       description: "Create a powerful brand identity that resonates with your target audience and differentiates you from competitors.",
       icon: <Target className="h-6 w-6 text-white" />,
+      image: brandingImage,
     },
     {
       title: "Strategic Planning",
       description: "Develop comprehensive strategic plans that align with your vision and drive sustainable business growth.",
       icon: <TrendingUp className="h-6 w-6 text-white" />,
+      image: strategicPlanningImage,
     },
     {
       title: "Startup Incubation",
       description: "Guide startups through their journey from concept to market with expert mentorship and resources.",
       icon: <Lightbulb className="h-6 w-6 text-white" />,
+      image: startupIncubationImage,
     },
     {
       title: "Business Plan Generation",
       description: "Create detailed, investor-ready business plans that clearly communicate your vision and strategy.",
       icon: <FileText className="h-6 w-6 text-white" />,
+      image: businessPlanImage,
     },
     {
       title: "Process Refinement",
       description: "Optimize your business processes for maximum efficiency and improved operational performance.",
       icon: <Settings className="h-6 w-6 text-white" />,
+      image: processRefinementImage,
     },
     {
       title: "Team Building",
       description: "Build high-performing teams through strategic recruitment, culture development, and leadership training.",
       icon: <Users className="h-6 w-6 text-white" />,
+      image: teamBuildingImage,
     },
     {
       title: "Training & Development",
       description: "Enhance your team's capabilities through customized training programs and professional development.",
       icon: <GraduationCap className="h-6 w-6 text-white" />,
+      image: trainingDevelopmentImage,
     },
   ];
 
@@ -110,7 +125,14 @@ const Consultancy = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <Card key={index} className="h-full hover:shadow-elegant transition-all duration-300 hover:scale-105">
+              <Card key={index} className="h-full hover:shadow-elegant transition-all duration-300 hover:scale-105 overflow-hidden">
+                <div className="aspect-video w-full overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                  />
+                </div>
                 <CardHeader>
                   <div className="w-12 h-12 rounded-lg bg-gradient-accent flex items-center justify-center mb-4">
                     {service.icon}

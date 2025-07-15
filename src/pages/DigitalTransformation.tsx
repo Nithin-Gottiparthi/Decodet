@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
@@ -183,7 +184,7 @@ const DigitalTransformation = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-gradient-subtle rounded-lg p-8">
+            <div className="bg-gradient-subtle rounded-lg p-8 hover:shadow-elegant transition-all duration-300">
               <h3 className="text-2xl font-bold text-primary mb-4">Ready to Transform?</h3>
               <p className="text-muted-foreground mb-6">
                 Let's discuss how our digital transformation services can accelerate your business growth.
