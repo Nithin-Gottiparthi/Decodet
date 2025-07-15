@@ -1,10 +1,11 @@
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Link } from "react-router-dom";
 import { Heart, Coffee, Users, Award, Gamepad2, Plane, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import teamCollaborationImage from "@/assets/team-collaboration.jpg";
+import Autoplay from "embla-carousel-autoplay";
 
 const Life = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -62,13 +63,7 @@ const Life = () => {
       quote: "The work-life balance here is exceptional. I can focus on delivering quality work while having time for my personal interests and family. The team truly cares about each other.",
       author: "Maria Rodriguez",
       role: "Marketing Manager",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face "
-    },
-    {
-      quote: "The work-life balance here is exceptional. I can focus on delivering quality work while having time for my personal interests and family. The team truly cares about each other.",
-      author: "Maria Rodriguez",
-      role: "Marketing Manager",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+      image: "https://images.unsplash.com/photo-1494790108755-2616b612b5bc?w=400&h=400&fit=crop&crop=face"
     },
     {
       quote: "What I love most about Decodet is the continuous learning culture. We're encouraged to experiment, learn new technologies, and share knowledge with the team.",
@@ -179,7 +174,6 @@ const Life = () => {
           </div>
         </section>
 
-
         {/* Gallery Section */}
         <section className="mb-20">
           <h2 className="text-3xl font-bold text-primary text-center mb-12">
@@ -192,7 +186,7 @@ const Life = () => {
             {galleryImages.map((image, index) => (
               <div
                 key={index}
-                className="group relative overflow-hidden rounded-lg cursor-pointer hover:shadow-card-hover transition-all duration-300"
+                className="group relative overflow-hidden rounded-lg cursor-pointer hover:shadow-elegant transition-all duration-300"
                 onClick={() => openLightbox(image.src)}
               >
                 <img
@@ -210,34 +204,65 @@ const Life = () => {
           </div>
         </section>
 
-        {/* Employee Testimonials */}
+        {/* Employee Testimonials Carousel */}
         <section className="mb-20">
           <h2 className="text-3xl font-bold text-primary text-center mb-12">
             What Our Team Says
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="hover:shadow-card-hover transition-all duration-300">
-                <CardHeader className="text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-full overflow-hidden">
-                    <img
-                      src={testimonial.image}
-                      alt={testimonial.author}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <CardTitle className="text-lg">{testimonial.author}</CardTitle>
-                  <CardDescription className="text-accent font-semibold">
-                    {testimonial.role}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground text-center italic">
-                    "{testimonial.quote}"
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="max-w-4xl mx-auto">
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              plugins={[
+                Autoplay({
+                  delay: 5000,
+                }),
+              ]}
+              className="w-full"
+            >
+              <CarouselContent>
+                {testimonials.map((testimonial, index) => (
+                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                    <div className="p-1">
+                      <Card className="h-full hover:shadow-elegant transition-all duration-300">
+                        <CardHeader className="text-center">
+                          <div className="w-16 h-16 mx-auto mb-4 rounded-full overflow-hidden">
+                            <img
+                              src={testimonial.image}
+                              alt={testimonial.author}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                          <CardTitle className="text-lg">{testimonial.author}</CardTitle>
+                          <CardDescription className="text-accent font-semibold">
+                            {testimonial.role}
+                          </CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                          <p className="text-muted-foreground text-center italic">
+                            "{testimonial.quote}"
+                          </p>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="hidden md:flex" />
+              <CarouselNext className="hidden md:flex" />
+            </Carousel>
+
+            {/* Indicators for mobile */}
+            <div className="flex justify-center mt-6 space-x-2 md:hidden">
+              {testimonials.map((_, index) => (
+                <div
+                  key={index}
+                  className="w-2 h-2 rounded-full bg-muted-foreground/30 transition-colors duration-200"
+                />
+              ))}
+            </div>
           </div>
         </section>
 
@@ -281,7 +306,6 @@ const Life = () => {
             ))}
           </div>
         </section>
-
 
         {/* CTA Section */}
         <div className="bg-gradient-hero text-white rounded-lg p-8 text-center">
