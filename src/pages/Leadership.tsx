@@ -45,7 +45,7 @@ const Leadership = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4">
-            Our Leadership Team
+            Our Team
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Meet the visionary leaders driving Decodet's mission to transform businesses through 
