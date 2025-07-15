@@ -66,6 +66,12 @@ const Life = () => {
       image: "https://images.unsplash.com/photo-1494790108755-2616b612b5bc?w=400&h=400&fit=crop&crop=face"
     },
     {
+      quote: "The work-life balance here is exceptional. I can focus on delivering quality work while having time for my personal interests and family. The team truly cares about each other.",
+      author: "Maria Rodriguez",
+      role: "Marketing Manager",
+      image: "https://images.unsplash.com/photo-1494790108755-2616b612b5bc?w=400&h=400&fit=crop&crop=face"
+    },
+    {
       quote: "What I love most about Decodet is the continuous learning culture. We're encouraged to experiment, learn new technologies, and share knowledge with the team.",
       author: "David Park",
       role: "Business Consultant",
@@ -217,7 +223,7 @@ const Life = () => {
               }}
               plugins={[
                 Autoplay({
-                  delay: 5000,
+                  delay: 4000,
                 }),
               ]}
               className="w-full"
