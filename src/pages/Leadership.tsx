@@ -8,7 +8,7 @@ const Leadership = () => {
     {
       name: "Dr. Vibinchandar Selvaraj",
       position: "Founder & Chairman",
-      bio: "With over 15 years of experience in digital transformation, John leads Decodet's vision of empowering businesses through innovative technology solutions.",
+      bio: "With over 15 years of experience in digital transformation, Vibin leads Decodet's vision of empowering businesses through innovative technology solutions.",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
       linkedin: "#",
       email: "john.smith@decodet.com"
@@ -45,7 +45,7 @@ const Leadership = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4">
-            Our Leadership Team
+            Our Team
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Meet the visionary leaders driving Decodet's mission to transform businesses through 

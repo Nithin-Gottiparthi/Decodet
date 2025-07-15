@@ -15,6 +15,10 @@ import {
   TrendingUp
 } from "lucide-react";
 import heroImage from "@/assets/hero-image.jpg";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { Pagination, Autoplay } from 'swiper/modules';
 
 const Index = () => {
   const services = [
@@ -199,7 +203,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
       <section className="py-20 bg-gradient-subtle">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -211,49 +214,94 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="hover:shadow-elegant transition-all duration-300">
-              <CardHeader>
-                <CardTitle className="text-lg">"Exceptional Digital Transformation"</CardTitle>
-                <CardDescription>
-                  "Decodet completely transformed our online presence. Their team delivered a
-                  beautiful website and comprehensive digital marketing strategy that increased
-                  our leads by 300%."
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-accent font-semibold">- Sarah Johnson, CEO, TechStart Inc.</p>
-              </CardContent>
-            </Card>
+          <Swiper
+            modules={[Pagination, Autoplay]}
+            spaceBetween={20}
+            slidesPerView={1}
+            breakpoints={{
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 4000 }}
+            className="pb-16"
+          >
+            {/* Slide 1 */}
+            <SwiperSlide className="flex h-full">
+              <Card className="flex flex-col h-full border border-gray-200 shadow-sm">
+                <CardHeader>
+                  <CardTitle className="text-lg">"Exceptional Digital Transformation"</CardTitle>
+                  <CardDescription>
+                    "Decodet completely transformed our online presence. Their team delivered a
+                    beautiful website and comprehensive digital marketing strategy that increased
+                    our leads by 300%."
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="mt-auto">
+                  <p className="text-sm text-accent font-semibold">
+                    - Sarah Johnson, CEO, TechStart Inc.
+                  </p>
+                </CardContent>
+              </Card>
+            </SwiperSlide>
 
-            <Card className="hover:shadow-elegant transition-all duration-300">
-              <CardHeader>
-                <CardTitle className="text-lg">"Strategic Guidance That Works"</CardTitle>
-                <CardDescription>
-                  "The consultancy team at Decodet provided invaluable strategic insights
-                  that helped us refine our business model and achieve sustainable growth."
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-accent font-semibold">- Michael Chen, Founder, GrowthCorp</p>
-              </CardContent>
-            </Card>
+            {/* Slide 2 */}
+            <SwiperSlide className="flex h-full">
+              <Card className="flex flex-col h-full border border-gray-200 shadow-sm">
+                <CardHeader>
+                  <CardTitle className="text-lg">"Strategic Guidance That Works"</CardTitle>
+                  <CardDescription>
+                    "The consultancy team at Decodet provided invaluable strategic insights
+                    that helped us refine our business model and achieve sustainable growth."
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="mt-auto">
+                  <p className="text-sm text-accent font-semibold">
+                    - Michael Chen, Founder, GrowthCorp
+                  </p>
+                </CardContent>
+              </Card>
+            </SwiperSlide>
 
-            <Card className="hover:shadow-elegant transition-all duration-300">
-              <CardHeader>
-                <CardTitle className="text-lg">"Outstanding Learning Platform"</CardTitle>
-                <CardDescription>
-                  "Our team's skills were significantly enhanced through Decodet's upskilling
-                  programs. The quality of training and support was exceptional."
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-accent font-semibold">- Jennifer Davis, HR Director, InnovateNow</p>
-              </CardContent>
-            </Card>
-          </div>
+            {/* Slide 3 */}
+            <SwiperSlide className="flex h-full">
+              <Card className="flex flex-col h-full border border-gray-200 shadow-sm">
+                <CardHeader>
+                  <CardTitle className="text-lg">"Strategic Guidance That Works"</CardTitle>
+                  <CardDescription>
+                    "The consultancy team at Decodet provided invaluable strategic insights
+                    that helped us refine our business model and achieve sustainable growth."
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="mt-auto">
+                  <p className="text-sm text-accent font-semibold">
+                    - Michael Chen, Founder, GrowthCorp
+                  </p>
+                </CardContent>
+              </Card>
+            </SwiperSlide>
+
+            {/* Slide 4 */}
+            <SwiperSlide className="flex h-full">
+              <Card className="flex flex-col h-full border border-gray-200 shadow-sm">
+                <CardHeader>
+                  <CardTitle className="text-lg">"Outstanding Learning Platform"</CardTitle>
+                  <CardDescription>
+                    "Our team's skills were significantly enhanced through Decodet's upskilling
+                    programs. The quality of training and support was exceptional."
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="mt-auto">
+                  <p className="text-sm text-accent font-semibold">
+                    - Jennifer Davis, HR Director, InnovateNow
+                  </p>
+                </CardContent>
+              </Card>
+            </SwiperSlide>
+          </Swiper>
         </div>
       </section>
+
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-hero text-white">

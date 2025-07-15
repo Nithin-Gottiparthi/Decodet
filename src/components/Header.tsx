@@ -22,7 +22,7 @@ const Header = () => {
 
   const aboutItems = [
     { name: "About Us", href: "/about" },
-    { name: "Our Leadership Team", href: "/about/leadership" },
+    { name: "Our Team", href: "/about/leadership" },
     { name: "Life at Decodet", href: "/about/life" },
     { name: "Join Our Team", href: "/about/careers" },
   ];

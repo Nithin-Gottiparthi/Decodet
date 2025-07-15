@@ -62,7 +62,13 @@ const Life = () => {
       quote: "The work-life balance here is exceptional. I can focus on delivering quality work while having time for my personal interests and family. The team truly cares about each other.",
       author: "Maria Rodriguez",
       role: "Marketing Manager",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b5bc?w=400&h=400&fit=crop&crop=face"
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face "
+    },
+    {
+      quote: "The work-life balance here is exceptional. I can focus on delivering quality work while having time for my personal interests and family. The team truly cares about each other.",
+      author: "Maria Rodriguez",
+      role: "Marketing Manager",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
     },
     {
       quote: "What I love most about Decodet is the continuous learning culture. We're encouraged to experiment, learn new technologies, and share knowledge with the team.",
@@ -155,7 +161,10 @@ const Life = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {cultureValues.map((value, index) => (
-              <Card key={index} className="text-center hover:shadow-card-hover transition-all duration-300">
+              <Card
+                key={index}
+                className="text-center transition-all duration-300 hover:[box-shadow:0_10px_25px_rgba(255,98,41,0.5)]"
+              >
                 <CardHeader>
                   <div className="w-12 h-12 rounded-lg bg-gradient-accent flex items-center justify-center mx-auto mb-4">
                     {value.icon}
@@ -169,6 +178,7 @@ const Life = () => {
             ))}
           </div>
         </section>
+
 
         {/* Gallery Section */}
         <section className="mb-20">
@@ -236,37 +246,42 @@ const Life = () => {
           <h2 className="text-3xl font-bold text-primary text-center mb-12">
             Perks & Benefits
           </h2>
+
+          {/* Perk Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {perks.map((perk, index) => (
-              <div key={index} className="bg-gradient-subtle rounded-lg p-6 text-center hover:shadow-card-hover transition-all duration-300">
-                <div className="w-10 h-10 rounded-lg bg-gradient-accent flex items-center justify-center mx-auto mb-4">
+              <div
+                key={index}
+                className="bg-white border border-gray-200 rounded-xl p-6 text-center shadow-sm hover:shadow-lg transition-all duration-300"
+              >
+                <div className="w-12 h-12 rounded-lg bg-gradient-accent flex items-center justify-center mx-auto mb-4">
                   {perk.icon}
                 </div>
-                <h3 className="font-semibold mb-2">{perk.title}</h3>
+                <h3 className="font-semibold text-lg mb-2">{perk.title}</h3>
                 <p className="text-muted-foreground text-sm">{perk.description}</p>
               </div>
             ))}
           </div>
 
+          {/* Benefits Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-            <div className="bg-white rounded-lg p-4 shadow-sm hover:shadow-card-hover transition-all duration-300">
-              <div className="text-2xl font-bold text-primary">100%</div>
-              <div className="text-sm text-muted-foreground">Health Coverage</div>
-            </div>
-            <div className="bg-white rounded-lg p-4 shadow-sm hover:shadow-card-hover transition-all duration-300">
-              <div className="text-2xl font-bold text-primary">25</div>
-              <div className="text-sm text-muted-foreground">Vacation Days</div>
-            </div>
-            <div className="bg-white rounded-lg p-4 shadow-sm hover:shadow-card-hover transition-all duration-300">
-              <div className="text-2xl font-bold text-primary">$2K</div>
-              <div className="text-sm text-muted-foreground">Learning Budget</div>
-            </div>
-            <div className="bg-white rounded-lg p-4 shadow-sm hover:shadow-card-hover transition-all duration-300">
-              <div className="text-2xl font-bold text-primary">Remote</div>
-              <div className="text-sm text-muted-foreground">Work Options</div>
-            </div>
+            {[
+              { label: "Health Coverage", value: "100%" },
+              { label: "Vacation Days", value: "25" },
+              { label: "Learning Budget", value: "$2K" },
+              { label: "Work Options", value: "Remote" },
+            ].map((item, index) => (
+              <div
+                key={index}
+                className="bg-white border border-gray-200 rounded-xl p-4 shadow-sm hover:shadow-lg transition-all duration-300"
+              >
+                <div className="text-2xl font-bold text-primary">{item.value}</div>
+                <div className="text-sm text-muted-foreground">{item.label}</div>
+              </div>
+            ))}
           </div>
         </section>
+
 
         {/* CTA Section */}
         <div className="bg-gradient-hero text-white rounded-lg p-8 text-center">
