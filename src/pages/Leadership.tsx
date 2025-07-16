@@ -8,34 +8,34 @@ const Leadership = () => {
     {
       name: "Dr. Vibinchandar Selvaraj",
       position: "Founder & Chairman",
-      bio: "With over 15 years of experience in digital transformation, John leads Decodet's vision of empowering businesses through innovative technology solutions.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
-      linkedin: "#",
-      email: "john.smith@decodet.com"
+      bio: "Dr. Vibinchandar Selvaraj is the visionary Founder & Chairman of Decodet, committed to empowering businesses through innovation and technology leadership.",
+      image: "/images/team/vibin.png",
+      linkedin: "https://www.linkedin.com/in/dr-vibinchandar-selvaraj-0643b119/",
+      email: "vibinchandar@decodet.com"
     },
     {
       name: "Haritha Vibinchandar",
       position: "Chief Executive Officer",
-      bio: "Sarah brings deep technical expertise and leads our engineering teams in developing cutting-edge solutions for our clients' digital transformation needs.",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
+      bio: "Haritha Vibinchandar leads the organization with a vision for innovation and growth, driving strategic initiatives and overall business excellence.",
+      image: "/images/team/haritha.png",
       linkedin: "#",
-      email: "sarah.johnson@decodet.com"
+      email: "haritha@decodet.com"
     },
     {
-      name: "Michael Chen",
-      position: "Head of Consultancy",
-      bio: "Michael specializes in strategic planning and business transformation, helping organizations navigate complex challenges and achieve sustainable growth.",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
-      linkedin: "#",
-      email: "michael.chen@decodet.com"
+      name: "Radha Chittajallu",
+      position: "Academic Head",
+      bio: "Radha Chittajallu oversees academic strategy and curriculum development, ensuring excellence in teaching and learning outcomes.",
+      image: "/images/team/radha.jpg",
+      linkedin: "https://www.linkedin.com/in/radhachittajallu/",
+      email: "radha@decodet.com"
     },
     {
-      name: "Emily Davis",
-      position: "Director of Learning & Development",
-      bio: "Emily leads our upskilling initiatives, designing comprehensive training programs that align with industry demands and career aspirations.",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
+      name: "Anbunesan",
+      position: "Head - Digital Marketing & Web Development  ",
+      bio: "Anbunesan leads our Digital Marketing and Web Development efforts, focusing on innovative strategies and high-performing digital solutions.",
+      image: "/images/team/anbu.png",
       linkedin: "#",
-      email: "emily.davis@decodet.com"
+      email: "anbunesan@decodet.com"
     }
   ];
 
