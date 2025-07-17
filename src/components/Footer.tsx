@@ -34,7 +34,7 @@ const Footer = () => {
               </li>
               <li>
                 <a 
-                  href="https://decodet.com" 
+                  href="/upskilling" 
                   className="hover:text-accent transition-colors inline-flex items-center gap-1"
                 >
                   Upskilling
