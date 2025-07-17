@@ -18,11 +18,12 @@ const Header = () => {
     { name: "Home", href: "/" },
     { name: "Digital Transformation", href: "/digital-transformation" },
     { name: "Consultancy", href: "/consultancy" },
+    { name: "Upskilling", href: "/upskilling" },
   ];
 
   const aboutItems = [
     { name: "About Us", href: "/about" },
-    { name: "Our Team", href: "/about/leadership" },
+    { name: "Our Leadership Team", href: "/about/leadership" },
     { name: "Life at Decodet", href: "/about/life" },
     { name: "Join Our Team", href: "/about/careers" },
   ];
@@ -60,18 +61,6 @@ const Header = () => {
                 {item.name}
               </Link>
             ))}
-            
-            {/* Upskilling Link */}
-            <Link
-              to="https://decodet.com"
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-              onClick={(e) => {
-                e.preventDefault();
-                window.location.href = "https://decodet.com";
-              }}
-            >
-              Upskilling
-            </Link>
 
             {/* About Dropdown */}
             <DropdownMenu>
@@ -139,19 +128,6 @@ const Header = () => {
                   </Link>
                 ))}
               </div>
-
-              {/* Upskilling Link */}
-              <Link
-                to="https://decodet.com"
-                className="text-sm font-medium text-muted-foreground hover:text-primary"
-                onClick={(e) => {
-                  e.preventDefault();
-                  closeMobileMenu();
-                  window.location.href = "https://decodet.com";
-                }}
-              >
-                Upskilling
-              </Link>
 
               <Button asChild variant="hero" size="sm" className="w-fit">
                 <Link to="/contact" onClick={closeMobileMenu}>Contact</Link>
