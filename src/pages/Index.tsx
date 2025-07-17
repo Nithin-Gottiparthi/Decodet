@@ -37,9 +37,8 @@ const Index = () => {
     {
       title: "Upskilling",
       description: "Industry-aligned training programs and professional development through our comprehensive learning platform.",
-      icon: <BookOpen className="h-6 w-6 text-white" />,
+      icon: <Target className="h-6 w-6 text-white" />,
       href: "/upskilling",
-      isExternal: true,
     },
   ];
 
@@ -149,7 +148,6 @@ const Index = () => {
                 description={service.description}
                 icon={service.icon}
                 href={service.href}
-                isExternal={service.isExternal}
               />
             ))}
           </div>

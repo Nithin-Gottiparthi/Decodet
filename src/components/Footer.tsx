@@ -35,8 +35,6 @@ const Footer = () => {
               <li>
                 <a 
                   href="https://decodet.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
                   className="hover:text-accent transition-colors inline-flex items-center gap-1"
                 >
                   Upskilling
@@ -52,7 +50,7 @@ const Footer = () => {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link to="/about/leadership" className="hover:text-accent transition-colors">
-                  Our Leadership Team
+                  Our Team
                 </Link>
               </li>
               <li>
